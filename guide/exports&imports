@@ -1,0 +1,22 @@
+~~ person.js
+const person = {
+  name: 'Max'
+}
+export default person
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+~~utility.js
+export const clean = () => {...}
+export const baseData = 10;
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+^^^
+~~app.js
+import person from './person.js'
+import prsn from './person.js'
+
+import {baseData} from './utility.js'
+import {clean} from './utility.js'
+import {clean as dirty} from './utility.js'
+import * as bundle from './utility.js'
+
