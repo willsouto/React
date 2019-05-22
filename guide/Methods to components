@@ -1,0 +1,72 @@
+<script>
+import React, { Component } from 'react';
+import './App.css';
+import Person from './Person/Person';
+    
+class App extends Component => {
+    
+    state = {
+        persons: [
+            { name:'Max', age: 28 },
+            { name: 'Manu', age: 29 },
+            { name: 'Stephanie', age: 26 }
+        ],
+        otherState: 'other value'
+    }
+    
+    
+     const switchNameHandler = () => {
+        //console.log("Button Clicked");
+        //DONT DO THIS > this.state.persons[0].name = 'Maximiliano';
+        this.setState({
+            persons: [
+                { name:'Maximiliano', age: 28 },
+                { name: 'Manu', age: 29 },
+                { name: 'Stephanie', age: 27 }
+            ],
+            otherState: personsState.otherState
+        })
+    }
+
+
+    
+        return(
+            <div className="App">
+                <h1>Hi, I'm a React App</h1>
+                <p>This is really working!</p>
+                <button onClick={() => this.switchNameHandler('Maximiliano')}>Switch Name</script>button
+                <Person click={this.switchNameHandler.bind(this, 'Maximilian')}
+                name={this.state.persons[0].name} age={this.state.persons[0].age} />
+                
+                <Person 
+                name={this.state.persons[1].name} age={this.state.persons[1].age}> Children </Person>
+                
+                <Person 
+                name={this.state.persons[2].name} age={this.state.persons[2].age} />
+                
+            </div>
+        );
+
+    export default App;
+
+    
+}
+
+</script>
+
+
+
+Person.js \/
+<script>
+import React from 'react';
+    
+    const person = ( props ) => {
+        return (
+            <div>
+                <p onClick={props.click}>I'm {props.name} and I am {props.age} years</p>
+                <p>{props.children}</p>
+            </div>
+        )
+    }
+
+</script>
