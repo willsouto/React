@@ -1,0 +1,111 @@
+<script>
+import React, { Component } from 'react';
+import './App.css';
+import UserInput from './User/UserInput.js';
+import UserOutput from './User/UserOutput.js';
+
+class App extends Component {
+    state = {
+        User: [
+            {'name': 'Will'},
+            {'name': 'Doug'},
+            {'name': 'Raphael'}
+        ],
+        ShowEditUser: false
+    }
+
+     userNameHandler = (event) =>{
+        this.setState({
+            User: [
+                {'name': event.target.value },
+                {'name': this.state.User[1].name },
+                {'name': this.state.User[2].name },
+            ]
+        })
+    }
+     
+    userToggleHandler = () => {
+        /*this.setState({
+            ShowEditUser: true
+        })*/
+        const doesShow = this.state.ShowEditUser;
+        this.setState({ShowEditUser: !doesShow});
+        
+    }
+    
+
+  render() {
+      
+    let showEdit = (<button onClick={this.userToggleHandler}>Edit User </button>);
+      if(this.state.ShowEditUser){
+          showEdit = (
+            <div >
+                <UserInput changed={this.userNameHandler}  name={this.state.User[0].name} />
+            </div>
+          )
+      }
+      
+    return (
+      <div className="App">
+        <UserOutput name={this.state.User[0].name} />
+            
+           {/* { 
+                this.state.ShowEditUser ? 
+                    <div >
+                        <UserInput changed={this.userNameHandler}  name={this.state.User[0].name} />
+                    </div> 
+                : 
+                    <button onClick={this.userToggleHandler}> Edit User </button>
+            }*/}
+          {showEdit}
+        <UserOutput name={this.state.User[1].name} />
+        <UserOutput name={this.state.User[2].name} />
+            
+      </div>
+    );
+  }
+}
+
+export default App;
+
+</script>
+
+<script>
+import React from 'react';
+
+
+const UserInput = (props) =>{
+    const style = {
+        background: '#eee',
+        borderRadius: '6px',
+        padding: '6px 12px',
+        border: '1px solid #ccc',
+        marginBottom: '80px'
+    }
+    return(
+            <input type="text" value={props.name} onChange={props.changed} style={style}/>
+    )
+}
+
+export default UserInput;
+</script>
+
+<script>
+import React from 'react';
+
+
+const UserOutput = (props) =>{
+    const style = {
+        borderTop: '1px solid #000',
+        backgroundImage: 'linear-gradient(#efefef, #fff)'
+    }
+    return(
+        <div style={style}>
+            <p>Profile</p>
+            <p>Username: {props.name}</p> 
+        </div>
+    )
+}
+
+export default UserOutput;
+</script>
