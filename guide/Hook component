@@ -1,47 +1,63 @@
+<script>
 import React, { useState } from 'react';
 import './App.css';
 import Person from './Person/Person';
     
-const App = props => {
+const App = () => {
     
-    const [ personsState, setPersons ] = useState({
-        persons: [
-            { name:'Max', age: 28 },
-            { name: 'Manu', age: 29 },
-            { name: 'Stephanie', age: 26 }
-        ],
-       // otherState: 'other value'
-    });
-    
-    const [ otherState, setOther ] = useState({ otherState: 'other value' });
-    
-    
-     const switchNameHandler = () => {
-        setPersonsState({
-            persons: [
-                { name:'Maximiliano', age: 28 },
+       const [ personsState, setPersons ] = useState({
+                persons: [
+                { name:'Max', age: 28 },
                 { name: 'Manu', age: 29 },
-                { name: 'Stephanie', age: 27 }
+                { name: 'Stephanie', age: 26 }
             ],
-           // otherState: personsState.otherState
-        })
-         
-         setPersonsState({ otherState: 'other value changed' })
-    }
-
+            otherState: 'other value'
+            
+        });
+        
+        
     
-        return(
-            <div className="App">
-                <h1>Hi, I'm a React App</h1>
-                <p>This is really working!</p>
-                <button onClick={switchNameHandler}>Switch Name</script>button
-                <Person name={personsState.persons[0].name} age={personsState.persons[0].age} />
-                <Person name={personsState.persons[1].name} age={personsState.persons[1].age}> Children </Person>
-                <Person name={personsState.persons[2].name} age={personsState.persons[2].age} />
-            </div>
-        );
-
-    export default App;
-
+        const switchNameHandler = () => {
+            //console.log("Button Clicked");
+            //DONT DO THIS > personsState.persons[0].name = 'Maximiliano';
+            setPersons({
+                persons: [
+                    { name:'Maximiliano', age: 2228 },
+                    { name: 'Manu', age: 29 },
+                    { name: 'Stephanie', age: 27 }
+                ],
+            })
+        }
     
+            return(
+                <div className="App">
+                    <h1>Hi, I'm a React App</h1>
+                    <p>This is really working!</p>
+                    <button onClick={switchNameHandler}>Switch Name</button>
+                    <Person name={personsState.persons[0].name} age={personsState.persons[0].age} />
+                    <Person name={personsState.persons[1].name} age={personsState.persons[1].age}> Children </Person>
+                    <Person name={personsState.persons[2].name} age={personsState.persons[2].age} />
+                </div>
+            )
+
 }
+
+export default App;
+</script>
+
+
+
+<script>
+import React from 'react';
+    
+const person = ( props ) => {
+    return(
+        <div>
+            <p>I'm {props.name} and I am {props.age} years old!</p>
+            <p>{props.children}</p>
+        </div>
+        )
+}
+
+export default person;
+</script>
