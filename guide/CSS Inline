@@ -1,0 +1,62 @@
+<script>
+import React, { useState } from 'react';
+import './App.css';
+import Person from './Person/Person';
+    
+const App = () => {
+    
+       const [ personsState, setPersons ] = useState({
+                persons: [
+                { name:'Max', age: 28 },
+                { name: 'Manu', age: 29 },
+                { name: 'Stephanie', age: 26 }
+            ],
+            otherState: 'other value'
+            
+        });
+        
+        
+    
+        const switchNameHandler = () => {
+            //console.log("Button Clicked");
+            //DONT DO THIS > personsState.persons[0].name = 'Maximiliano';
+            setPersons({
+                persons: [
+                    { name:'Maximiliano', age: 2228 },
+                    { name: 'Manu', age: 29 },
+                    { name: 'Stephanie', age: 27 }
+                ],
+            })
+        };
+    
+        
+        
+            const style = {
+                    buttonStyle: {
+                        background: '#fff',
+                        color: '#424242',
+                        border: '2px solid #424242',
+                        borderRadius: '6px',
+                        padding: '6px 12px'
+                    },
+                    titleStyle: {
+                        color: 'red'
+                    }
+              }
+        
+    
+            return(
+                <div className="App">
+                    <h1 style={style.titleStyle}>Hi, I'm a React App</h1>
+                    <p>This is really working!</p>
+                    <button style={style.buttonStyle} onClick={switchNameHandler}>Switch Name</button>
+                    <Person name={personsState.persons[0].name} age={personsState.persons[0].age} />
+                    <Person name={personsState.persons[1].name} age={personsState.persons[1].age}> Children </Person>
+                    <Person name={personsState.persons[2].name} age={personsState.persons[2].age} />
+                </div>
+            )
+
+}
+
+export default App;
+</script>
