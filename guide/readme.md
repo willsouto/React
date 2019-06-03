@@ -7,9 +7,6 @@ create-react-app nomeProjeto --scripts-version 1.1.5
 cd nomeProjeto/
 npm start
 
-webpack
-babel
-
 
 ![Hooks lifecycle](/guide/lifecycle.jpg)
 
