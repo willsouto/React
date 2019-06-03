@@ -12,3 +12,4 @@ babel
 
 
 ![Hooks lifecycle] (/lifecycle.jpg)
+![GitHub Logo](/images/logo.png)
