@@ -11,4 +11,4 @@ webpack
 babel
 
 
-!(/lifecycle.jpg)
+![Hooks lifecycle] (/lifecycle.jpg)
