@@ -1,4 +1,4 @@
-<script>
+<script app.js>
 import React, { Component } from 'react';
 import classes from './App.css';
 import Person from './Person/Person';
@@ -43,28 +43,26 @@ class App extends Component {
         }
 
         render(){
-            const style = {
-                backgroundColor: 'green',
-                font: 'inherit',
-                border: '1px solid blue',
-                padding: '8px',
-                cursor: 'pointer',
-            }
+            let btnClass = '';
             const pTag = [];
             if(this.state.otherState === true){ 
-                style.backgroundColor = 'red'; 
-                
                 pTag.push(classes.red);
+                btnClass = classes.transition;
             }else if(this.state.otherState === false){
                 pTag.push(classes.bold);
             }
             
+            
+       
             return(
-                
                     <div className={classes.App}>
                         <h1>Hi, I'm a React App</h1>
                         <p className={pTag}>This is really working!</p>
-                        <button style={style} onClick={this.switchNameHandler}>Switch Name</button>
+                        <button 
+                            className={btnClass}
+                            onClick={this.switchNameHandler}
+                            onMouseOver={this.onMouseOver}
+                            >Switch Name</button>
 
                         <Person 
                             name={this.state.persons[0].name} age={this.state.persons[0].age} />
@@ -83,3 +81,64 @@ class App extends Component {
 export default App;
 
 </script>
+
+<style app.css>
+.App {
+  text-align: center;
+}
+
+.App button {
+    background-color: green;
+    font: inherit;
+    border: 1px solid blue;
+    padding: 8px;
+    cursor: pointer;
+    color: #fff;
+}
+.App button:hover {
+    background-color: red;
+}
+
+.red {
+    color: red;
+}
+.App button.transition { transition: 0.3s background; }
+
+.bold { font-weight: bold; }
+</style>
+
+<script person.js>
+import React from 'react';
+import classes from './Person.css';
+    
+const person = ( props ) => {
+    return(
+        <div className={classes.Person}>
+            <p onClick={props.click}>I'm {props.name} and I am {props.age} years old!</p>
+            <p>{props.children}</p>
+            <input type="text" onChange={props.changed} value={props.name}/>
+        </div>
+        )
+}
+
+export default person;
+
+</script>
+
+<style person.css>
+.Person { 
+    border: 2px solid #eee;
+    border-bottom: 4px solid #ccc;
+    padding: 20px;
+    width: 200px;
+    margin: 20px auto;
+    text-align: center;
+}
+
+@media (max-width: 500px) {
+    .Person {
+        background: red;
+    }
+}
+</style>
+
