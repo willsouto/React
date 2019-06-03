@@ -11,5 +11,5 @@ webpack
 babel
 
 
-![Hooks lifecycle] (/lifecycle.jpg)
+![Hooks lifecycle](/lifecycle.jpg)
 ![GitHub Logo](/images/logo.png)
