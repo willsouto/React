@@ -9,3 +9,6 @@ npm start
 
 webpack
 babel
+
+
+!(/lifecycle.jpg)
