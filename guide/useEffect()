@@ -1,4 +1,3 @@
-<script>
 import React, { useEffect} from 'react';
 import css from './Cockpit.css';
 
@@ -10,7 +9,7 @@ const cockpit = (props) => {
             alert('Saved data to cloud');
         }, 1000);
     }, [props.persons]);
-    
+    //componentDidMount > useEffect(() =>{}, []) > empty array
     
     
     const classes = [];
@@ -37,4 +36,3 @@ const cockpit = (props) => {
 }
 
 export default cockpit;
-</script>
